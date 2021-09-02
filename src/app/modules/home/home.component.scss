@@ -1,0 +1,33 @@
+.common {
+  .__tournments {
+    padding-top: 8px;
+    display: flex;
+    justify-content: center;
+    .__header {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      width: 85vw;
+      background-color: #213643;
+      padding: 20px;
+      border-top-left-radius: 8px;
+      border-top-right-radius: 8px;
+      span {
+        font-family: "Roboto Bold", sans-serif;
+        margin-left: 8px;
+        color: #f0faf2;
+        font-size: 16px;
+      }
+    }
+
+    .__content {
+      display: flex;
+      justify-content: space-around;
+      align-items: center;
+
+      .__card {
+        // max-width: ;
+      }
+    }
+  }
+}

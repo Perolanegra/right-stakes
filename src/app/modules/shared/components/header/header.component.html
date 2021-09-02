@@ -1,0 +1,38 @@
+<div class="header">
+  <div *ngIf="!hasRedirect" class="flex __global">
+    <div class="__align-icons">
+      <button
+        matSuffix
+        mat-icon-button
+        aria-label="Search"
+        (click)="onMenuToggle()"
+      >
+        <img [src]="hamburguerImg" />
+      </button>
+      <button matSuffix mat-icon-button aria-label="Search">
+        <img [src]="searchIconImg" />
+      </button>
+    </div>
+    <img src="assets/logos/aposta1.png" alt="" />
+    <button *ngIf="!isLoggedIn" class="__btn-login" (click)="redirectToLogin()">
+      Entrar
+    </button>
+    <button *ngIf="isLoggedIn" class="__btn-balance" (click)="onClickBalance()">
+      <span style="color: #2bac58">R$ </span>
+      <span style="word-wrap: break-word">
+        {{ balance | currency: "BRL" | boxbalance }}
+      </span>
+    </button>
+  </div>
+  <div *ngIf="hasRedirect" class="flex __state-login">
+    <button
+      matSuffix
+      mat-icon-button
+      aria-label="Search"
+      (click)="backToHome()"
+    >
+      <img [src]="backIconImg" />
+    </button>
+    <span class="__sign-in"> Entrar </span>
+  </div>
+</div>

@@ -1,0 +1,75 @@
+.header {
+  width: 100%;
+  background: rgb(33, 55, 69);
+  background: linear-gradient(
+    0deg,
+    rgba(33, 55, 69, 1) 0%,
+    rgba(27, 40, 47, 1) 100%
+  );
+
+  .flex {
+    display: flex;
+    height: 100%;
+  }
+  .__global {
+    justify-content: space-around;
+    align-items: center;
+    padding: 20px;
+
+    .__align-icons {
+      width: fit-content;
+      position: relative;
+      left: calc(
+        -20px + 5px
+      ); // cálculo do padding do container + adicionado margem de 5px;
+    }
+
+    .__btn-login {
+      background: #00a826;
+      width: 25%;
+      color: #f0faf2;
+      padding: 8px;
+      border-radius: 2px;
+      border: unset;
+      font-weight: bold;
+      font-size: 12px;
+      position: relative;
+      right: calc(-20px + 5px);
+    }
+
+    .__btn-balance {
+      background: #455965;
+      /* width: 25%; */
+      color: #f0faf2;
+      padding: 10px 12px;
+      border-radius: 2px;
+      border: 1px solid #8a9aa4;
+      font-weight: bold;
+      font-size: 12px;
+      position: relative;
+      right: calc(-20px + 5px);
+      max-width: 130px;
+    }
+
+    .__btn-balance, .__btn-login {
+      &:active {
+        opacity: 0.5;
+        transform: translateY(-0.5px);
+      }
+    }
+  }
+  .__state-login {
+    display: flex;
+    width: 100%;
+    justify-content: space-between;
+    align-items: center;
+    height: fit-content;
+    padding-top: 18%;
+
+    .__sign-in {
+      font-family: "Roboto Bold", sans-serif;
+      flex: 0 55%;
+      color: #f0faf2;
+    }
+  }
+}

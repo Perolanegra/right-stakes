@@ -1,0 +1,21 @@
+<app-drawer-menu>
+  <ng-container menuBody>
+    <app-menu (emitToggleMenu)="closeMenu()"></app-menu>
+  </ng-container>
+
+  <ng-container contentBody>
+    <app-header
+      hamburguerImg="assets/icons/hamburguer.png"
+      searchIconImg="assets/icons/search.png"
+      backIconImg="assets/icons/back.png"
+      [isLoggedIn]="false"
+      [balance]="'992723.45'"
+      (emitClickMenuToggle)="openMenu()"
+      (emitClickBalance)="clickBalance()"
+      (redirectLogin)="navigateToLogin()"
+      (backHome)="navigateBackHome()"
+    >
+    </app-header>
+    <router-outlet></router-outlet>
+  </ng-container>
+</app-drawer-menu>

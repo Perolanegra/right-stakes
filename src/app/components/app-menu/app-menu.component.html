@@ -1,0 +1,21 @@
+<div class="nav">
+  <div class="__global">
+    <div class="__header">
+      <img src="assets/icons/hamburguer.png" (click)="toggleMenu()" />
+      <span>test@test.gmail.com</span>
+    </div>
+    <div class="__bet-text">APOSTAR</div>
+
+    <div>
+      <ul>
+        <ng-container *ngFor="let item of menuList">
+          <li>
+            <img [src]="item?.icon" alt="" />
+            <span>{{ item?.option }}</span>
+          </li>
+          <hr *ngIf="item?.hasHrLine" />
+        </ng-container>
+      </ul>
+    </div>
+  </div>
+</div>

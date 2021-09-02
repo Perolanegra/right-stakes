@@ -1,0 +1,178 @@
+{
+    "users": [
+        {
+            "id": 1,
+            "username": "test@test.com",
+            "password": "123qweASD",
+            "balance": 13000.05
+        }
+    ],
+    "countries": [
+        {
+            "id": 1,
+            "name": "Brazil",
+            "icon": "brazil",
+            "label": "Brasil"
+        },
+        {
+            "id": 2,
+            "name": "England",
+            "icon": "england",
+            "label": "Inglaterra"
+        },
+        {
+            "id": 3,
+            "name": "Germany",
+            "icon": "germany",
+            "label": "Alemanha"
+        },
+        {
+            "id": 4,
+            "name": "Russia",
+            "icon": "russia",
+            "label": "Rússia"
+        },
+        {
+            "id": 5,
+            "name": "Spain",
+            "image": "spain",
+            "label": "Espanha"
+        },
+        {
+            "id": 6,
+            "name": "Sweden",
+            "icon": "sweden",
+            "label": "Suécia"
+        }
+    ],
+    "tournaments": [
+        {
+            "id": 1,
+            "name": "Brasileiro Série A",
+            "countryId": 1,
+            "image": "brasileirao-a"
+        },
+        {
+            "id": 2,
+            "name": "Brasileiro Série B",
+            "countryId": 1,
+            "image": "brasileirao-b"
+        },
+        {
+            "id": 3,
+            "name": "Paulista",
+            "countryId": 1,
+            "image": "paulista"
+        },
+        {
+            "id": 4,
+            "name": "Carioca",
+            "countryId": 1,
+            "image": "carioca"
+        }
+    ],
+    "teams": [
+        {
+            "id": 1,
+            "name": "Atlético Mineiro",
+            "shortName": "Atl Mineiro",
+            "icon": "atletico-mineiro.png"
+        },
+        {
+            "id": 2,
+            "name": "Avaí",
+            "shortName": "Avaí",
+            "icon": "avai.png"
+        },
+        {
+            "id": 3,
+            "name": "Flamengo",
+            "shortName": "Flamengo",
+            "icon": "flamengo.png"
+        },
+        {
+            "id": 4,
+            "name": "Grêmio FC",
+            "shortName": "Grêmio",
+            "icon": "gremio.png"
+        },
+        {
+            "id": 5,
+            "name": "São Paulo",
+            "shortName": "São Paulo",
+            "icon": "sao-paulo.png"
+        },
+        {
+            "id": 6,
+            "name": "Vasco da Gama",
+            "shortName": "Vasco",
+            "icon": "vasco.png"
+        }
+    ],
+    "matches": [
+        {
+            "id": 1,
+            "homeTeamId": 1,
+            "awayTeamId": 5,
+            "date": "2019-11-10 19:00",
+            "tournamentId": 1,
+            "countryId": 1,
+            "bets": {
+                "home": 1.5,
+                "draw": 2,
+                "away": 2.5,
+                "homeOrDraw": 1.25,
+                "drawOrAway": 2.15,
+                "homeOrAway": 4
+            }
+        },        
+        {
+            "id": 2,
+            "homeTeamId": 4,
+            "awayTeamId": 3,
+            "date": "2019-11-10 19:00",
+            "tournamentId": 1,
+            "countryId": 1,
+            "bets": {
+                "home": 1.75,
+                "draw": 2,
+                "away": 2.15,
+                "homeOrDraw": 1.25,
+                "drawOrAway": 2.5,
+                "homeOrAway": 5
+            }
+        },
+        {
+            "id": 2,
+            "homeTeamId": 6,
+            "awayTeamId": 2,
+            "date": "2019-11-10 16:00",
+            "tournamentId": 2,
+            "countryId": 1,
+            "bets": {
+                "home": 1.5,
+                "draw": 2.5,
+                "away": 3.5,
+                "homeOrDraw": 1.25,
+                "drawOrAway": 2.75,
+                "homeOrAway": 3.75
+            }
+        },
+        {
+            "id": 4,
+            "homeTeamId": 3,
+            "awayTeamId": 6,
+            "date": "2019-11-13 21:30",
+            "tournamentId": 4,
+            "countryId": 1,
+            "bets": {
+                "home": 2.5,
+                "draw": 3.75,
+                "away": 3,
+                "homeOrDraw": 1.75,
+                "drawOrAway": 3.75,
+                "homeOrAway": 2.75
+            }
+        }
+    ]
+}
