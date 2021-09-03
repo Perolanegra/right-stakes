@@ -1,0 +1,27 @@
+<div id="loginGlobal" class="_global">
+    <div class="__columns">
+        <div class="section">
+            <img src="assets/logos/aposta1-slogan.png" alt="" />
+        </div>
+
+        <ng-container>
+            <form class="section" style="flex-direction: column;" [formGroup]="_form" (ngSubmit)="submit()">
+                <mat-form-field appearance="outline">
+                    <mat-label>Email</mat-label>
+                    <input matInput class="font" autocomplete="off" formControlName="username" maxlength="35"
+                        minlength="2" type="text" required />
+                </mat-form-field>
+                <mat-form-field appearance="outline">
+                    <mat-label>Password</mat-label>
+                    <input matInput #inputPass type="password" required [type]="hide ? 'password' : 'text'"
+                        formControlName="password" maxlength="20" />
+                    <mat-icon-button style="cursor: pointer; color: #979797
+                    ;" matSuffix (click)="hide = !hide" [attr.aria-label]="'Hide password'" [attr.aria-pressed]="hide">
+                        <mat-icon>{{hide ? 'visibility_off' : 'visibility'}}</mat-icon>
+                    </mat-icon-button>
+                    <mat-hint class="primary-color" align="end">{{inputPass.value?.length || 0}} / 8</mat-hint>
+                </mat-form-field>
+            </form>
+        </ng-container>
+    </div>
+</div>

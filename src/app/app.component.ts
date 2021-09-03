@@ -1,4 +1,5 @@
 import { Component } from "@angular/core";
+import { Router } from "@angular/router";
 import { Store } from "@ngrx/store";
 import { UpdateAccount } from "./modules/core/actions/account/account.action";
 import { AppController } from "./modules/core/appController";
@@ -13,10 +14,13 @@ import { selectAccount } from "./modules/core/store/reducers/account/account.red
 export class AppComponent {
   title = "test-front-end";
 
-  constructor(private store: Store<AppState>, private appController: AppController) {}
+  constructor(
+    private store: Store<AppState>,
+    private appController: AppController,
+    public router: Router
+  ) {}
 
-  ngOnInit() {
-  }
+  ngOnInit() {}
 
   UpdateAccount(resp: any) {
     this.store.dispatch(UpdateAccount(resp));
@@ -40,14 +44,18 @@ export class AppComponent {
   }
 
   clickBalance() {
-    console.log('o usuario clicou no saldo;');
+    console.log("o usuario clicou no saldo;");
   }
 
-  navigateToLogin() {
-    console.log('o usuario clicou para ir para página de login');
+  navigateToLogin(): void {
+    this.appController.navigate('login');
   }
 
   navigateBackHome() {
-    console.log('o usuario clicou para voltar para home');
+    const currentUrl = this.router.url;
+    this.router.navigateByUrl("/", { skipLocationChange: true }).then(() => {
+      if (currentUrl === "/home") window.location.reload();
+      this.appController.navigate("home");
+    });
   }
 }

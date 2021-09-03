@@ -1,13 +1,13 @@
 import { Routes, RouterModule } from '@angular/router';
 import { NgModule } from '@angular/core';
-import { HomeComponent } from './home.component';
+import { LoginComponent } from './login.component';
 
 
 const routes: Routes = [
-    { path: 'home', redirectTo: '', pathMatch: 'full' },
+    { path: 'login', redirectTo: '', pathMatch: 'full' },
     {
         path:'', // rota/:param
-        component: HomeComponent,
+        component: LoginComponent,
         runGuardsAndResolvers: 'always'
     }
 ];
@@ -19,4 +19,4 @@ const routes: Routes = [
         // resolvers
     ]
 })
-export class HomeRoutingModule { }
+export class LoginRoutingModule { }

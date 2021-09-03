@@ -13,26 +13,21 @@
 </ng-container>
 
 <ng-container [ngSwitch]="switchVar">
-  <div *ngSwitchCase="'home'"></div>
+  <div *ngSwitchCase="'home'" class="fade-in">Home In Progress</div>
   <div *ngSwitchCase="'futebol'">
-    <div class="common">
+    <div class="common fade-in">
       <div class="section">
         <div class="__header">
           <img style="width: 25px" src="assets/icons/tournaments.png" alt="" />
           <span>Torneios</span>
         </div>
         <div class="__content-tournments">
-          <div class="__card">
-            <img src="assets/tournaments/paulista.png" alt="" />
-          </div>
-          <div class="__card">
-            <img src="assets/tournaments/brasileirao-a.png" alt="" />
-          </div>
-          <div class="__card">
-            <img src="assets/tournaments/brasileirao-b.png" alt="" />
-          </div>
-          <div class="__card">
-            <img src="assets/tournaments/carioca.png" alt="" />
+          <div *ngFor="let item of tournments" style="width: 22%">
+            <div class="__card" style="width: 100%" (click)="redirectToTournment(item)">
+              <img src="assets/tournaments/{{ item?.image }}.png" alt="" />
+            </div>
+            <strong id="tournments">Campeonato
+              {{ item?.name }}</strong>
           </div>
         </div>
       </div>
@@ -150,5 +145,7 @@
       </div>
     </div>
   </div>
-  <div *ngSwitchCase="'outros'"></div>
+  <div *ngSwitchCase="'outros'" class="fade-in">
+    Outros In Progress
+  </div>
 </ng-container>

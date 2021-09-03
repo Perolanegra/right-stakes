@@ -8,6 +8,8 @@ import { Subject } from "rxjs";
 })
 export class AppMenuComponent implements OnInit {
   @Output() private emitToggleMenu: Subject<any> = new Subject();
+  @Output() private backToHome: Subject<any> = new Subject();
+
   constructor() {}
 
   ngOnInit(): void {}
@@ -58,4 +60,10 @@ export class AppMenuComponent implements OnInit {
       icon: "assets/icons/switch.png",
     },
   ];
+
+  clickOption(item: any): void {
+    if ((item.option as string).toLowerCase() === "futebol") {
+      this.backToHome.next();
+    }
+  }
 }

@@ -19,7 +19,7 @@ export class HeaderComponent implements OnInit {
   @Output() emitClickBalance: Subject<any> = new Subject();
   @Output() backHome: Subject<any> = new Subject();
 
-  public hasRedirect?: boolean;
+  @Input() public redirect?: string;
 
   constructor() {}
 
@@ -27,13 +27,14 @@ export class HeaderComponent implements OnInit {
 
   backToHome = () => {
     this.backHome.next();
-    this.hasRedirect = false;
+    // this.hasRedirect = false;
   };
 
   redirectToLogin = () => {
     this.redirectLogin.next();
-    this.hasRedirect = true;
+    // this.hasRedirect = true;
   };
+
 
   onMenuToggle = () => this.emitClickMenuToggle.next();
 

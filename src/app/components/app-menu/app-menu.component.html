@@ -9,7 +9,7 @@
     <div>
       <ul>
         <ng-container *ngFor="let item of menuList">
-          <li>
+          <li (click)="clickOption(item)">
             <img [src]="item?.icon" alt="" />
             <span>{{ item?.option }}</span>
           </li>

@@ -8,6 +8,12 @@
   padding: 10px 0;
 
   span {
+
+    &:active {
+      opacity: 0.7;
+      transform: translateY(-0.5px);
+    }
+
     hr {
       position: relative;
       top: 10px;
@@ -64,6 +70,11 @@
           border-radius: 8px;
           margin: 0 5px;
           align-items: center;
+
+          &:active {
+            opacity: 0.7;
+            transform: translateY(-0.5px);
+          }
         }
       }
     }
@@ -119,6 +130,11 @@
             padding: 5px 10px;
             width: 300px;
 
+            &:active {
+              opacity: 0.7;
+              transform: translateY(-0.5px);
+            }
+
             .__team {
               display: flex;
               flex-direction: row;
@@ -151,12 +167,25 @@
         justify-content: center;
         align-items: center;
 
+        &:active {
+          opacity: 0.7;
+          transform: translateY(0.5px);
+        }
+
         img {
           width: 70%;
         }
       }
     }
   }
+}
+
+strong#tournments {
+  text-align: center;
+  display: flex;
+  font-size: 12px;
+  height: 40px;
+  justify-content: center;
 }
 
 @media only screen and (max-height: 481px) {
@@ -194,7 +223,7 @@
     .section {
       .__content-tournments {
         .__card {
-          height: 12vh;
+          // height: 12vh;
           width: 15%;
         }
       }

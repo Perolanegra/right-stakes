@@ -1,0 +1,20 @@
+._global {
+  width: 100%;
+  background-color: #f5f6f6;
+  // height: calc(100vh - 20px);
+  
+  .__columns {
+    display: flex;
+    flex-direction: column;
+
+    .section {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+
+      .mat-form-field {
+        width: 75vw;
+      }
+    }
+  }
+}

@@ -3,17 +3,21 @@ import { RouterModule, Routes } from "@angular/router";
 
 const routes: Routes = [
   { path: "", pathMatch: "full", redirectTo: "home" },
-  // { path: "login", component: LoginComponent, canActivate: [LoginAuthGuard] },
 
   {
     path: "home",
     loadChildren: () =>
       import("./modules/home/home.module").then((m) => m.HomeModule),
   },
+  {
+    path: "login",
+    loadChildren: () =>
+      import("./modules/login/login.module").then((m) => m.LoginModule),
+  },
 ];
 
 @NgModule({
-  imports: [RouterModule.forRoot(routes)],
+  imports: [RouterModule.forRoot(routes, { onSameUrlNavigation: "reload" })],
   exports: [RouterModule],
 })
 export class AppRoutingModule {}

@@ -10,6 +10,7 @@ import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { AppController } from './modules/core/appController';
 import { SharedModule } from './modules/shared/shared.module';
 import { AppMenuComponent } from './components/app-menu/app-menu.component';
+import { HttpClientModule } from '@angular/common/http';
 
 export function localStorageSyncReducer(reducer: ActionReducer<any>): ActionReducer<any> {
   return localStorageSync({ keys: reducerKeys, rehydrate: true })(reducer);
@@ -27,7 +28,8 @@ const metaReducers: Array<MetaReducer<any, any>> = [localStorageSyncReducer];
     AppRoutingModule,
     StoreModule.forRoot(reducers, { metaReducers }),
     BrowserAnimationsModule,
-    SharedModule
+    SharedModule,
+    HttpClientModule
   ],
   providers: [AppController],
   bootstrap: [AppComponent]

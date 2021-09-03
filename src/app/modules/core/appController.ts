@@ -51,7 +51,7 @@ export class AppController {
             try {
               pFuncaoTratamento(pValue);
             } catch (err) {
-            //   this.handleError(err);
+              //   this.handleError(err);
             }
           }
         })
@@ -74,8 +74,14 @@ export class AppController {
   public navigate(path: string): void {
     this.router
       .navigate(["/" + path])
-      .catch((error) => console.log("error: ", error))
+      .catch((error) => console.log("error: ", error));
     //   .finally(() => this.spinner.hide());
+  }
+
+  public navigateUrl(path: string) {
+    this.router
+      .navigateByUrl("/", { skipLocationChange: true })
+      .then(() => this.router.navigate([path]));
   }
 
   /**
@@ -87,7 +93,7 @@ export class AppController {
   public navigateWithParams(path: string, params: any[]): void {
     this.router
       .navigate(["/" + path, ...params])
-      .catch((error) => console.log("error: ", error))
+      .catch((error) => console.log("error: ", error));
     //   .finally(() => this.spinner.hide());
   }
 
