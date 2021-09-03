@@ -25,6 +25,26 @@
       }
     }
 
+    .__content-countries {
+      width: 100vw;
+
+      .__countries-box {
+        padding: 10px 20px;
+        overflow-x: scroll;
+        display: flex;
+
+        .__countries {
+          display: flex;
+          flex-direction: column;
+          padding: 10px 20px;
+          background: #fff;
+          border-radius: 8px;
+          margin: 0 5px;
+          align-items: center;
+        }
+      }
+    }
+
     .__content-games {
       display: flex;
       background: #f5f6f6;
@@ -46,8 +66,20 @@
           flex-direction: column;
           margin: 0 10px;
 
+          .__element-box {
+            margin: 0 2px;
+            width: 100%;
+            display: flex;
+            flex-wrap: wrap;
+            display: flex;
+            flex-direction: column;
+            padding: 10px 20px;
+            background: #fff;
+            border-radius: 8px;
+          }
+
           &:first-child {
-              margin-left: unset;
+            margin-left: unset;
           }
 
           .__inline-box {
@@ -119,20 +151,20 @@
 }
 
 @media only screen and (max-width: 321px) {
-    .common {
-      .section {
-        .__content-games {
-          .__carousel {
-            .__container-box {
-              .__inline-box {
-                  width: 250px;
-              }
+  .common {
+    .section {
+      .__content-games {
+        .__carousel {
+          .__container-box {
+            .__inline-box {
+              width: 250px;
             }
           }
         }
       }
     }
   }
+}
 
 @media only screen and (min-width: 540px) {
   .common {
