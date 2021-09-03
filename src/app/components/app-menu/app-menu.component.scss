@@ -2,15 +2,17 @@
   width: 75vw;
   height: 100%;
   background: rgb(26, 36, 42);
-  background: linear-gradient(
-    0deg,
-    rgba(26, 36, 42, 1) 0%,
-    rgba(34, 56, 70, 1) 100%
-  );
-  border-top-right-radius: 30px;
+  // background: linear-gradient(
+  //   0deg,
+  //   rgba(26, 36, 42, 1) 0%,
+  //   rgba(34, 56, 70, 1) 100%
+  // );
+  // border-top-right-radius: 30px;
 
   .__global {
     padding: 20px;
+    background: linear-gradient(0deg, #1a242a 0%, #223846 100%);
+    border-top-right-radius: 30px;
     .__header {
       display: flex;
       align-items: center;
