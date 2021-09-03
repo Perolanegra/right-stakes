@@ -5,7 +5,7 @@
         </div>
 
         <ng-container>
-            <form class="section" style="flex-direction: column;" [formGroup]="_form" (ngSubmit)="submit()">
+            <form class="section" style="flex-direction: column; padding-bottom: 20px" [formGroup]="_form" (ngSubmit)="submit()">
                 <mat-form-field appearance="outline">
                     <mat-label>Email</mat-label>
                     <input matInput class="font" autocomplete="off" formControlName="username" maxlength="35"
@@ -15,12 +15,16 @@
                     <mat-label>Password</mat-label>
                     <input matInput #inputPass type="password" required [type]="hide ? 'password' : 'text'"
                         formControlName="password" maxlength="20" />
-                    <mat-icon-button style="cursor: pointer; color: #979797
-                    ;" matSuffix (click)="hide = !hide" [attr.aria-label]="'Hide password'" [attr.aria-pressed]="hide">
+                    <mat-icon-button style="cursor: pointer; color: #979797;" matSuffix (click)="hide = !hide"
+                        [attr.aria-label]="'Hide password'" [attr.aria-pressed]="hide">
                         <mat-icon>{{hide ? 'visibility_off' : 'visibility'}}</mat-icon>
                     </mat-icon-button>
                     <mat-hint class="primary-color" align="end">{{inputPass.value?.length || 0}} / 8</mat-hint>
                 </mat-form-field>
+
+                <button class="__btn-submit" type="submit">
+                    Entrar
+                </button>
             </form>
         </ng-container>
     </div>
