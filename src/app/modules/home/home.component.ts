@@ -9,11 +9,14 @@ import { AppController } from "../core/appController";
 export class HomeComponent implements OnInit {
   constructor(private appController: AppController) {}
 
+  switchVar: string = 'futebol';
+
   ngOnInit(): void {
     // this.appController.triggerCustomEvent('HandleStateSpinner', {
     //   value: false,
     // });
   }
+
 
   
 }

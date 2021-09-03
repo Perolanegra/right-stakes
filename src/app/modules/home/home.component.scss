@@ -1,3 +1,26 @@
+._global {
+  width: 100%;
+  background-color: #325163;
+  display: flex;
+  justify-content: space-around;
+  font-family: "Roboto Bold";
+  color: #fff;
+  padding: 10px 0;
+
+  span {
+    hr {
+      position: relative;
+      top: 10px;
+      width: calc(100% + 12px);
+      margin: unset;
+      height: 2px;
+      background: #f6af43;
+      border: unset;
+      left: -6px;
+    }
+  }
+}
+
 .common {
   background-color: #f5f6f6;
 

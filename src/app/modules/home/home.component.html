@@ -1,134 +1,154 @@
-<div class="common">
-  <div class="section">
-    <div class="__header">
-      <img style="width: 25px" src="assets/icons/tournaments.png" alt="" />
-      <span>Torneios</span>
-    </div>
-    <div class="__content-tournments">
-      <div class="__card">
-        <img src="assets/tournaments/paulista.png" alt="" />
+<ng-container>
+  <div class="_global">
+    <span (click)="switchVar = 'home'">Home
+      <hr *ngIf="switchVar === 'home'" />
+    </span>
+    <span (click)="switchVar = 'futebol'">Futebol
+      <hr *ngIf="switchVar === 'futebol'" />
+    </span>
+    <span (click)="switchVar = 'outros'">Outros
+      <hr *ngIf="switchVar === 'outros'" />
+    </span>
+  </div>
+</ng-container>
+
+<ng-container [ngSwitch]="switchVar">
+  <div *ngSwitchCase="'home'"></div>
+  <div *ngSwitchCase="'futebol'">
+    <div class="common">
+      <div class="section">
+        <div class="__header">
+          <img style="width: 25px" src="assets/icons/tournaments.png" alt="" />
+          <span>Torneios</span>
+        </div>
+        <div class="__content-tournments">
+          <div class="__card">
+            <img src="assets/tournaments/paulista.png" alt="" />
+          </div>
+          <div class="__card">
+            <img src="assets/tournaments/brasileirao-a.png" alt="" />
+          </div>
+          <div class="__card">
+            <img src="assets/tournaments/brasileirao-b.png" alt="" />
+          </div>
+          <div class="__card">
+            <img src="assets/tournaments/carioca.png" alt="" />
+          </div>
+        </div>
       </div>
-      <div class="__card">
-        <img src="assets/tournaments/brasileirao-a.png" alt="" />
-      </div>
-      <div class="__card">
-        <img src="assets/tournaments/brasileirao-b.png" alt="" />
-      </div>
-      <div class="__card">
-        <img src="assets/tournaments/carioca.png" alt="" />
+      <div class="section">
+        <div class="__header">
+          <img style="width: 25px" src="assets/icons/matches.png" alt="" />
+          <span>Partidas</span>
+        </div>
+        <div class="__content-games">
+          <div class="__carousel">
+            <div class="__container-box">
+              <div class="__inline-box">
+                <div class="__team">
+                  <img src="assets/teams/atletico-mineiro.png" alt="" />
+                  <span style="margin-left: 5px">Atlético Mineiro</span>
+                </div>
+                <strong>VS</strong>
+                <div class="__team">
+                  <img src="assets/teams/sao-paulo.png" alt="" />
+                  <span style="margin-left: 5px">São Paulo</span>
+                </div>
+              </div>
+              <div class="__inline-box">
+                <div class="__team">
+                  <img src="assets/teams/vasco.png" alt="" />
+                  <span style="margin-left: 5px">Vasco da Gama</span>
+                </div>
+                <strong>VS</strong>
+                <div class="__team">
+                  <img src="assets/teams/flamengo.png" alt="" />
+                  <span style="margin-left: 5px">Flamengo</span>
+                </div>
+              </div>
+            </div>
+            <div class="__container-box">
+              <div class="__inline-box">
+                <div class="__team">
+                  <img src="assets/teams/atletico-mineiro.png" alt="" />
+                  <span style="margin-left: 5px">Atlético Mineiro</span>
+                </div>
+                <strong>VS</strong>
+                <div class="__team">
+                  <img src="assets/teams/sao-paulo.png" alt="" />
+                  <span style="margin-left: 5px">São Paulo</span>
+                </div>
+              </div>
+              <div class="__inline-box">
+                <div class="__team">
+                  <img src="assets/teams/vasco.png" alt="" />
+                  <span style="margin-left: 5px">Vasco da Gama</span>
+                </div>
+                <strong>VS</strong>
+                <div class="__team">
+                  <img src="assets/teams/flamengo.png" alt="" />
+                  <span style="margin-left: 5px">Flamengo</span>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="section">
+          <div class="__header" style="background-color: #3b69a3">
+            <img style="width: 25px" src="assets/icons/earth.png" alt="" />
+            <span>Países</span>
+          </div>
+          <div>
+            <div class="__content-countries">
+              <div class="__countries-box">
+                <span class="__countries">
+                  <img src="assets/countries/sweden.png" style="width: 38px" alt="" />
+                  <span style="
+                      margin-top: 5px;
+                      font-family: 'Roboto Bold', sans-serif;
+                    ">Suíço</span>
+                </span>
+                <span class="__countries">
+                  <img src="assets/countries/brazil.png" style="width: 38px" alt="" />
+                  <span style="
+                      margin-top: 5px;
+                      font-family: 'Roboto Bold', sans-serif;
+                    ">Brasil</span>
+                </span>
+                <span class="__countries">
+                  <img src="assets/countries/spain.png" style="width: 38px" alt="" />
+                  <span style="
+                      margin-top: 5px;
+                      font-family: 'Roboto Bold', sans-serif;
+                    ">Espanha</span>
+                </span>
+                <span class="__countries">
+                  <img src="assets/countries/england.png" style="width: 38px" alt="" />
+                  <span style="
+                      margin-top: 5px;
+                      font-family: 'Roboto Bold', sans-serif;
+                    ">Inglaterra</span>
+                </span>
+                <span class="__countries">
+                  <img src="assets/countries/germany.png" style="width: 38px" alt="" />
+                  <span style="
+                      margin-top: 5px;
+                      font-family: 'Roboto Bold', sans-serif;
+                    ">Alemão</span>
+                </span>
+                <span class="__countries">
+                  <img src="assets/countries/russia.png" style="width: 38px" alt="" />
+                  <span style="
+                      margin-top: 5px;
+                      font-family: 'Roboto Bold', sans-serif;
+                    ">França</span>
+                </span>
+              </div>
+            </div>
+          </div>
+        </div>
       </div>
     </div>
   </div>
-  <div class="section">
-    <div class="__header">
-      <img style="width: 25px" src="assets/icons/matches.png" alt="" />
-      <span>Partidas</span>
-    </div>
-    <div class="__content-games">
-      <div class="__carousel">
-        <div class="__container-box">
-          <div class="__inline-box">
-            <div class="__team">
-              <img src="assets/teams/atletico-mineiro.png" alt="" />
-              <span style="margin-left: 5px">Atlético Mineiro</span>
-            </div>
-            <strong>VS</strong>
-            <div class="__team">
-              <img src="assets/teams/sao-paulo.png" alt="" />
-              <span style="margin-left: 5px">São Paulo</span>
-            </div>
-          </div>
-          <div class="__inline-box">
-            <div class="__team">
-              <img src="assets/teams/vasco.png" alt="" />
-              <span style="margin-left: 5px">Vasco da Gama</span>
-            </div>
-            <strong>VS</strong>
-            <div class="__team">
-              <img src="assets/teams/flamengo.png" alt="" />
-              <span style="margin-left: 5px">Flamengo</span>
-            </div>
-          </div>
-        </div>
-        <div class="__container-box">
-          <div class="__inline-box">
-            <div class="__team">
-              <img src="assets/teams/atletico-mineiro.png" alt="" />
-              <span style="margin-left: 5px">Atlético Mineiro</span>
-            </div>
-            <strong>VS</strong>
-            <div class="__team">
-              <img src="assets/teams/sao-paulo.png" alt="" />
-              <span style="margin-left: 5px">São Paulo</span>
-            </div>
-          </div>
-          <div class="__inline-box">
-            <div class="__team">
-              <img src="assets/teams/vasco.png" alt="" />
-              <span style="margin-left: 5px">Vasco da Gama</span>
-            </div>
-            <strong>VS</strong>
-            <div class="__team">
-              <img src="assets/teams/flamengo.png" alt="" />
-              <span style="margin-left: 5px">Flamengo</span>
-            </div>
-          </div>
-        </div>
-      </div>
-    </div>
-    <div class="section">
-      <div class="__header" style="background-color: #3b69a3">
-        <img style="width: 25px" src="assets/icons/earth.png" alt="" />
-        <span>Países</span>
-      </div>
-      <div >
-        <div class="__content-countries">
-          <div class="__countries-box">
-            <span class="__countries">
-              <img src="assets/countries/sweden.png" style="width: 38px;" alt="" />
-              <span
-                style="margin-top: 5px; font-family: 'Roboto Bold', sans-serif"
-                >Suíço</span
-              >
-            </span>
-            <span class="__countries">
-              <img src="assets/countries/brazil.png" style="width: 38px;" alt="" />
-              <span
-                style="margin-top: 5px; font-family: 'Roboto Bold', sans-serif"
-                >Brasil</span
-              >
-            </span>
-            <span class="__countries">
-              <img src="assets/countries/spain.png" style="width: 38px;" alt="" />
-              <span
-                style="margin-top: 5px; font-family: 'Roboto Bold', sans-serif"
-                >Espanha</span
-              >
-            </span>
-            <span class="__countries">
-              <img src="assets/countries/england.png" style="width: 38px;" alt="" />
-              <span
-                style="margin-top: 5px; font-family: 'Roboto Bold', sans-serif"
-                >Inglaterra</span
-              >
-            </span>
-            <span class="__countries">
-              <img src="assets/countries/germany.png" style="width: 38px;" alt="" />
-              <span
-                style="margin-top: 5px; font-family: 'Roboto Bold', sans-serif"
-                >Alemão</span
-              >
-            </span>
-            <span class="__countries">
-              <img src="assets/countries/russia.png" style="width: 38px;" alt="" />
-              <span
-                style="margin-top: 5px; font-family: 'Roboto Bold', sans-serif"
-                >França</span
-              >
-            </span>
-          </div>
-        </div>
-      </div>
-    </div>
-  </div>
-</div>
+  <div *ngSwitchCase="'outros'"></div>
+</ng-container>
