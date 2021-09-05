@@ -5,7 +5,13 @@ import {
   FormGroup,
   Validators,
 } from "@angular/forms";
+import { Store } from "@ngrx/store";
+import { UpdateAccount } from "../core/actions/account/account.action";
+import { UpdateCustomer } from "../core/actions/customer/customer.action";
 import { AppController } from "../core/appController";
+import { AppState } from "../core/store/app-state";
+import { selectAccount } from "../core/store/reducers/account/account.reducer";
+import { LoginService } from "./login.service";
 
 @Component({
   selector: "app-login",
@@ -17,7 +23,9 @@ export class LoginComponent implements OnInit, AfterViewInit {
   _form: FormGroup;
   constructor(
     private appController: AppController,
-    private formBuilder: FormBuilder
+    private formBuilder: FormBuilder,
+    private loginService: LoginService,
+    private store: Store<AppState>
   ) {
     this._form = this.formBuilder.group({});
   }
@@ -27,7 +35,6 @@ export class LoginComponent implements OnInit, AfterViewInit {
   }
 
   ngAfterViewInit() {
-    
     // Promise.resolve(null).then(() => this.setElementGlobal());
     // setTimeout(() => {
     // }, 500);
@@ -47,7 +54,23 @@ export class LoginComponent implements OnInit, AfterViewInit {
     );
   }
 
-  submit(): void {}
+  submit(): void {
+    if (this._form.valid) {
+      const { username, password } = selectAccount(this.store);
+      if (
+        this._form.controls.username.value === username &&
+        this._form.controls.password.value === password
+      ) {
+        this.store.dispatch(UpdateCustomer({ isLogged: true }));
+        this.appController.navigate("home");
+        this.appController.triggerCustomEvent("HandleAuthentication");
+      } else {
+        alert("Email ou senha inválidos.");
+      }
+    } else {
+      alert("Por Favor preencha os dados de login obrigatórios.");
+    }
+  }
 
   setForm(): void {
     this._form.addControl(

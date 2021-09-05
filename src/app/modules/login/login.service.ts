@@ -10,7 +10,7 @@ export class LoginService {
   constructor(private http: HttpClient) { }
 
   getAuth(): Observable<any[]> {
-    const url = `${this.url}/tournaments`;
+    const url = `${this.url}/users`;
     // const params = new HttpParams().set("pagination", pagination.toString());
     return this.http.get(url, { params: {} }) as Observable<any[]>;
   }

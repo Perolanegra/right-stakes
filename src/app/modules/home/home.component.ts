@@ -3,6 +3,7 @@ import { Store } from "@ngrx/store";
 import { UpdateTournments } from "../core/actions/tournments/tournments.action";
 import { AppController } from "../core/appController";
 import { AppState } from "../core/store/app-state";
+import { selectCustomer } from "../core/store/reducers/cutomer/customer.reducer";
 import { selectTournments } from "../core/store/reducers/tournments/tournments.reducer";
 import { HomeService } from "./home.service";
 
@@ -23,9 +24,6 @@ export class HomeComponent implements OnInit {
 
   ngOnInit(): void {
     this.requestTournments();
-    // this.appController.triggerCustomEvent('HandleStateSpinner', {
-    //   value: false,
-    // });
   }
 
   UpdateTournmentsState(resp: any) {
@@ -45,7 +43,7 @@ export class HomeComponent implements OnInit {
   }
 
   redirectToTournment(tournment: any) {
-    console.log('tournment: ', tournment);
+    console.log("tournment: ", tournment);
     //TODO: navigate to rota para direcionar para tela interna do torneio passando parametros.
   }
 }

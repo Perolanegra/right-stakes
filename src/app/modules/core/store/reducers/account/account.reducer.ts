@@ -7,7 +7,7 @@ import {
   ClearAccountState,
 } from "../../../actions/account/account.action";
 
-export const initialState = new AccountState("igor", "123", "21212121212232", '2');
+export const initialState = new AccountState("", "", "", '');
 
 export function accountReducer(state = initialState, action: ActionModel) {
   switch (action.type) {

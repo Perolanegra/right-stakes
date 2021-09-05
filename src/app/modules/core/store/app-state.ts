@@ -1,20 +1,18 @@
 import { ActionReducerMap } from '@ngrx/store';
 import { accountReducer } from './reducers/account/account.reducer';
+import { customerReducer } from './reducers/cutomer/customer.reducer';
 import { tournmentsReducer } from './reducers/tournments/tournments.reducer';
 
-export const reducerKeys = ['tournments', 'account'];
+export const reducerKeys = ['tournments', 'account', 'customer'];
 
 export interface AppState {
   tournments: any;
   account: any;
-  // user: any;
-  // token: any;
-  // product: any;
-  // multijunction: any;
-  // term: any;
+  customer: any
 }
 
 export const reducers: ActionReducerMap<AppState> = {
   account: accountReducer,
-  tournments: tournmentsReducer
+  tournments: tournmentsReducer,
+  customer: customerReducer
 };

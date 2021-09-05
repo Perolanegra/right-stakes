@@ -1,4 +1,4 @@
-import { Component, OnInit, Output } from "@angular/core";
+import { Component, Input, Output } from "@angular/core";
 import { Subject } from "rxjs";
 
 @Component({
@@ -6,15 +6,17 @@ import { Subject } from "rxjs";
   templateUrl: "./app-menu.component.html",
   styleUrls: ["./app-menu.component.scss"],
 })
-export class AppMenuComponent implements OnInit {
+export class AppMenuComponent {
   @Output() private emitToggleMenu: Subject<any> = new Subject();
   @Output() private backToHome: Subject<any> = new Subject();
+  @Output() private redirectLogin: Subject<any> = new Subject();
 
-  constructor() {}
-
-  ngOnInit(): void {}
+  @Input() public isLoggedIn?: boolean;
+  @Input() public userEmail?: string;
 
   toggleMenu = () => this.emitToggleMenu.next();
+  backHome = () => this.backToHome.next();
+  redirectToLogin = () => this.redirectLogin.next();
 
   menuList = [
     {
@@ -63,7 +65,12 @@ export class AppMenuComponent implements OnInit {
 
   clickOption(item: any): void {
     if ((item.option as string).toLowerCase() === "futebol") {
-      this.backToHome.next();
+      this.backHome();
+    }
+
+    if ((item.option as string).toLowerCase() === "sair") {
+      this.toggleMenu();
+      this.isLoggedIn ? this.backHome() : this.redirectToLogin();
     }
   }
 }

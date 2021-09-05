@@ -4,6 +4,9 @@
       <app-menu
         (emitToggleMenu)="closeMenu()"
         (backToHome)="navigateBackHome()"
+        (redirectLogin)="navigateToLogin()"
+        [isLoggedIn]="hasAuthentication"
+        [userEmail]="userEmail"
       ></app-menu>
     </ng-container>
 
@@ -12,8 +15,8 @@
         hamburguerImg="assets/icons/hamburguer.png"
         searchIconImg="assets/icons/search.png"
         backIconImg="assets/icons/back.png"
-        [isLoggedIn]="false"
-        [balance]="'992723.45'"
+        [isLoggedIn]="hasAuthentication"
+        [balance]="userBalance"
         (emitClickMenuToggle)="openMenu()"
         (emitClickBalance)="clickBalance()"
         (redirectLogin)="navigateToLogin()"

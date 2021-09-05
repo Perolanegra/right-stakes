@@ -2,7 +2,7 @@
   <div class="__global">
     <div class="__header">
       <img src="assets/icons/hamburguer.png" (click)="toggleMenu()" />
-      <span>test@test.gmail.com</span>
+      <span>{{userEmail}}</span>
     </div>
     <div class="__bet-text">APOSTAR</div>
 
@@ -11,7 +11,10 @@
         <ng-container *ngFor="let item of menuList">
           <li (click)="clickOption(item)">
             <img [src]="item?.icon" alt="" />
-            <span>{{ item?.option }}</span>
+            <span *ngIf="item?.option !== 'Sair'; else sair">{{ item?.option }}</span>
+            <ng-template #sair>
+              <span>{{ !isLoggedIn ? 'Entrar' : item?.option }}</span>
+            </ng-template>
           </li>
           <hr *ngIf="item?.hasHrLine" />
         </ng-container>

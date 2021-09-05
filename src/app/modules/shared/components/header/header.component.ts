@@ -27,14 +27,11 @@ export class HeaderComponent implements OnInit {
 
   backToHome = () => {
     this.backHome.next();
-    // this.hasRedirect = false;
   };
 
   redirectToLogin = () => {
     this.redirectLogin.next();
-    // this.hasRedirect = true;
   };
-
 
   onMenuToggle = () => this.emitClickMenuToggle.next();
 

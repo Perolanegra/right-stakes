@@ -1,10 +1,12 @@
-import { Component } from "@angular/core";
+import { Component, HostListener } from "@angular/core";
 import { Router } from "@angular/router";
 import { Store } from "@ngrx/store";
 import { UpdateAccount } from "./modules/core/actions/account/account.action";
 import { AppController } from "./modules/core/appController";
 import { AppState } from "./modules/core/store/app-state";
 import { selectAccount } from "./modules/core/store/reducers/account/account.reducer";
+import { selectCustomer } from "./modules/core/store/reducers/cutomer/customer.reducer";
+import { LoginService } from "./modules/login/login.service";
 
 @Component({
   selector: "app-root",
@@ -17,38 +19,61 @@ export class AppComponent {
   constructor(
     private store: Store<AppState>,
     private appController: AppController,
-    public router: Router
+    public router: Router,
+    private loginService: LoginService
   ) {}
 
-  ngOnInit() {}
+  hasAuthentication?: boolean;
+  userBalance?: string;
+  userEmail?: string;
 
-  UpdateAccount(resp: any) {
-    this.store.dispatch(UpdateAccount(resp));
+  ngOnInit() {
+    this.getAccount();
   }
 
   getAccount() {
-    const account = selectAccount(this.store);
-    console.log("account: ", account);
+    this.loginService.getAuth().subscribe((resp) => {
+      if (resp && resp.length) {
+        this.updateAccount(resp[0]); // como não existe endpoint fiz isso acessando a primeira posição.
+      }
+    });
   }
 
-  openMenu() {
+  updateAccount(resp: any): void {
+    this.store.dispatch(UpdateAccount(resp));
+  }
+
+  getUserInfo(): void {
+    const { balance, username } = selectAccount(this.store);
+    this.userBalance = balance;
+    this.userEmail = username;
+  }
+
+  @HostListener("window:HandleAuthentication", ["$event"])
+  hasAuth(): void {
+    const { isLogged } = selectCustomer(this.store);
+    this.hasAuthentication = isLogged;
+    if (isLogged) this.getUserInfo();
+  }
+
+  openMenu(): void {
     this.appController.triggerCustomEvent("HandleDrawer", {
       value: true,
     });
   }
 
-  closeMenu() {
+  closeMenu(): void {
     this.appController.triggerCustomEvent("HandleDrawer", {
       value: false,
     });
   }
 
-  clickBalance() {
+  clickBalance(): void {
     console.log("o usuario clicou no saldo;");
   }
 
   navigateToLogin(): void {
-    this.appController.navigate('login');
+    this.appController.navigate("login");
   }
 
   navigateBackHome() {
