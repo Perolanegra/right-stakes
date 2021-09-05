@@ -1,8 +1,7 @@
 export class CustomerState {
-    public isLogged: boolean;
-  
-    constructor(isLogged: boolean) {
-      this.isLogged = isLogged;
-    }
+  public isLogged: boolean;
+
+  constructor(isLogged: boolean) {
+    this.isLogged = isLogged;
   }
-  
+}

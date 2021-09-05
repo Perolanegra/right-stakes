@@ -1,10 +1,12 @@
 import { Component, OnInit } from "@angular/core";
 import { Store } from "@ngrx/store";
+import { UpdateTeams } from "../core/actions/teams/teams.action";
 import { UpdateTournments } from "../core/actions/tournments/tournments.action";
 import { AppController } from "../core/appController";
 import { AppState } from "../core/store/app-state";
 import { selectCountries } from "../core/store/reducers/countries/countries.reducer";
 import { selectCustomer } from "../core/store/reducers/cutomer/customer.reducer";
+import { selectTeams } from "../core/store/reducers/teams/teams.reducer";
 import { selectTournments } from "../core/store/reducers/tournments/tournments.reducer";
 import { HomeService } from "./home.service";
 
@@ -22,6 +24,7 @@ export class HomeComponent implements OnInit {
   switchVar: string = "futebol";
   tournments?: Array<any>;
   countries?: Array<any>;
+  teams?: Array<any>;
 
   ngOnInit(): void {
     this.requestTournments();
@@ -29,27 +32,31 @@ export class HomeComponent implements OnInit {
     this.getCountries();
   }
 
-  UpdateTournmentsState(resp: any) {
+  updateTournmentsState(resp: any) {
     this.store.dispatch(UpdateTournments(resp));
   }
 
   requestTournments(): void {
     this.homeService.getTournments().subscribe((resp) => {
-      this.UpdateTournmentsState(resp);
+      this.updateTournmentsState(resp);
       this.getTournments();
     });
   }
 
   requestGames(): void {
-    // this.homeService.getGames().subscribe((games) => {
-    //   //TODO: this.UpdateGamesState(games)
-    //   //TODO: this.getGames()
-    // })
+    this.homeService.getGames().subscribe((teams) => {
+      this.updateGamesState({ teams });
+      this.getGames();
+    });
+  }
+
+  updateGamesState(resp: any) {
+    this.store.dispatch(UpdateTeams(resp));
   }
 
   getGames(): void {
-    //TODO: const { games } = selectGames(this.store);
-    //TODO:  this.games = games;
+    const { teams } = selectTeams(this.store);
+    this.teams = teams;
   }
 
   getTournments(): void {

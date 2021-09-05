@@ -56,6 +56,9 @@ export class LoginComponent implements OnInit, AfterViewInit {
 
   submit(): void {
     if (this._form.valid) {
+      // NOTA: Fiz dessa forma pois se eu fizer uma request get chamando o endpoint 
+      // como foi passado no exemplo: http://localhost:3000/users?username=test@test.com&amp;password=123qweASD
+      // ao adicionar parametros a mais na senha, a api me retorna o dado mesmo se a senha não estiver igual
       const { username, password } = selectAccount(this.store);
       if (
         this._form.controls.username.value === username &&

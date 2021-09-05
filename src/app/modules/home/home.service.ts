@@ -1,4 +1,4 @@
-import { HttpClient, HttpParams } from "@angular/common/http";
+import { HttpClient } from "@angular/common/http";
 import { Injectable } from "@angular/core";
 import { Observable } from "rxjs";
 
@@ -17,6 +17,11 @@ export class HomeService {
 
   getCountries(): Observable<any[]> {
     const url = `${this.url}/countries`;
+    return this.http.get(url, { params: {} }) as Observable<any[]>;
+  }
+
+  getGames(): Observable<any[]> {
+    const url = `${this.url}/teams`;
     return this.http.get(url, { params: {} }) as Observable<any[]>;
   }
 }
