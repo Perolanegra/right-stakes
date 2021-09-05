@@ -2,10 +2,12 @@ import { Component, HostListener } from "@angular/core";
 import { Router } from "@angular/router";
 import { Store } from "@ngrx/store";
 import { UpdateAccount } from "./modules/core/actions/account/account.action";
+import { UpdateCountries } from "./modules/core/actions/countries/countries.action";
 import { AppController } from "./modules/core/appController";
 import { AppState } from "./modules/core/store/app-state";
 import { selectAccount } from "./modules/core/store/reducers/account/account.reducer";
 import { selectCustomer } from "./modules/core/store/reducers/cutomer/customer.reducer";
+import { HomeService } from "./modules/home/home.service";
 import { LoginService } from "./modules/login/login.service";
 
 @Component({
@@ -20,19 +22,29 @@ export class AppComponent {
     private store: Store<AppState>,
     private appController: AppController,
     public router: Router,
-    private loginService: LoginService
+    private loginService: LoginService,
+    private homeService: HomeService
   ) {}
 
   hasAuthentication?: boolean;
   userBalance?: string;
   userEmail?: string;
 
-  ngOnInit() {
+  ngOnInit(): void {
     this.getAccount();
+    this.requestCountries();
   }
 
-  getAccount() {
-    this.loginService.getAuth().subscribe((resp) => {
+  requestCountries(): void {
+    this.homeService.getCountries().subscribe((countries: Array<any>) => {
+      if (countries && countries.length) {
+        this.updateCountries({countries});
+      }
+    });
+  }
+
+  getAccount(): void {
+    this.loginService.getAuth().subscribe((resp: Array<any>) => {
       if (resp && resp.length) {
         this.updateAccount(resp[0]); // como não existe endpoint fiz isso acessando a primeira posição.
       }
@@ -41,6 +53,10 @@ export class AppComponent {
 
   updateAccount(resp: any): void {
     this.store.dispatch(UpdateAccount(resp));
+  }
+
+  updateCountries(resp: any): void {
+    this.store.dispatch(UpdateCountries(resp));
   }
 
   getUserInfo(): void {
@@ -76,7 +92,7 @@ export class AppComponent {
     this.appController.navigate("login");
   }
 
-  navigateBackHome() {
+  navigateBackHome(): void {
     const currentUrl = this.router.url;
     this.router.navigateByUrl("/", { skipLocationChange: true }).then(() => {
       if (currentUrl === "/home") window.location.reload();
