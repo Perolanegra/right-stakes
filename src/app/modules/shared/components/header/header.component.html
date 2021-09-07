@@ -1,5 +1,5 @@
 <div class="header">
-  <div *ngIf="redirect === '/home'" class="flex __global">
+  <div *ngIf="redirect !== '/login'" class="flex __global">
     <div class="__align-icons">
       <button
         matSuffix
@@ -24,7 +24,7 @@
       </span>
     </button>
   </div>
-  <div id="headerLogin" *ngIf="redirect === '/login'" class="flex __state-login">
+  <div id="headerLogin" *ngIf="!isLoggedIn && redirect === '/login'" class="flex __state-login">
     <button
       matSuffix
       mat-icon-button

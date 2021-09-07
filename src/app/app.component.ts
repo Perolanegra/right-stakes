@@ -31,6 +31,7 @@ export class AppComponent {
   userEmail?: string;
 
   ngOnInit(): void {
+    this.hasAuth();
     this.getAccount();
     this.requestCountries();
   }
@@ -38,7 +39,7 @@ export class AppComponent {
   requestCountries(): void {
     this.homeService.getCountries().subscribe((countries: Array<any>) => {
       if (countries && countries.length) {
-        this.updateCountries({countries});
+        this.updateCountries({ countries });
       }
     });
   }

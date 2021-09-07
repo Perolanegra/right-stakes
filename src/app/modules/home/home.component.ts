@@ -18,7 +18,8 @@ import { HomeService } from "./home.service";
 export class HomeComponent implements OnInit {
   constructor(
     private store: Store<AppState>,
-    private homeService: HomeService
+    private homeService: HomeService,
+    private appController: AppController
   ) {}
 
   switchVar: string = "futebol";
@@ -69,8 +70,9 @@ export class HomeComponent implements OnInit {
     this.countries = countries;
   }
 
-  redirectToTournment(tournment: any) {
-    console.log("tournment: ", tournment);
+  redirectToTournment(tournament: any): void {
     //TODO: navigate to rota para direcionar para tela interna do torneio passando parametros.
+    console.log("tournament: ", tournament);
+    this.appController.navigateWithParams('tournament/details/', [tournament.id, tournament.name]);
   }
 }

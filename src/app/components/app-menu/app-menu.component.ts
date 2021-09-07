@@ -1,5 +1,8 @@
 import { Component, Input, Output } from "@angular/core";
+import { Store } from "@ngrx/store";
 import { Subject } from "rxjs";
+import { UpdateCustomer } from "src/app/modules/core/actions/customer/customer.action";
+import { AppState } from "src/app/modules/core/store/app-state";
 
 @Component({
   selector: "app-menu",
@@ -7,6 +10,7 @@ import { Subject } from "rxjs";
   styleUrls: ["./app-menu.component.scss"],
 })
 export class AppMenuComponent {
+  constructor(private store: Store<AppState>) {}
   @Output() private emitToggleMenu: Subject<any> = new Subject();
   @Output() private backToHome: Subject<any> = new Subject();
   @Output() private redirectLogin: Subject<any> = new Subject();
@@ -16,7 +20,10 @@ export class AppMenuComponent {
 
   toggleMenu = () => this.emitToggleMenu.next();
   backHome = () => this.backToHome.next();
-  redirectToLogin = () => this.redirectLogin.next();
+  redirectToLogin = () => {
+    this.store.dispatch(UpdateCustomer({ isLogged: false }));
+    this.redirectLogin.next();
+  };
 
   menuList = [
     {
