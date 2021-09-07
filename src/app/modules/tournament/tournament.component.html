@@ -1,43 +1,79 @@
-<div style="width: 100%; height: 100vh;">
-    <div class="__content-games">
-        <div class="__carousel">
-          <div class="__container-box">
-            <div class="__inline-box">
-              <div class="__team">
-                <img src="assets/teams/atletico-mineiro.png" alt="" />
-                <span style="margin-left: 5px">Atlético Mineiro</span>
-              </div>
-              <strong>VS</strong>
-              <div class="__team">
-                <img src="assets/teams/sao-paulo.png" alt="" />
-                <span style="margin-left: 5px">São Paulo</span>
-              </div>
+<div class="_global">
+
+    <div class="__header">
+        <div class="section-title">
+
+            <img src="assets/background/background.png" alt="">
+            <div class="__card-title">
+                <p>Futebol > Brazil</p>
+                <h2>
+                    {{ tournamentName }}
+                </h2>
             </div>
-            <div class="__inline-box">
-              <div class="__team">
-                <img src="assets/teams/vasco.png" alt="" />
-                <span style="margin-left: 5px">Vasco da Gama</span>
-              </div>
-              <strong>VS</strong>
-              <div class="__team">
-                <img src="assets/teams/flamengo.png" alt="" />
-                <span style="margin-left: 5px">Flamengo</span>
-              </div>
-            </div>
-          </div>
-          <div class="__container-box">
-            <div class="__inline-box">
-              <div class="__team">
-                <img src="assets/teams/gremio.png" alt="" />
-                <span style="margin-left: 5px">Grêmio FC</span>
-              </div>
-              <strong>VS</strong>
-              <div class="__team">
-                <img src="assets/teams/avai.png" alt="" />
-                <span style="margin-left: 5px">Avai</span>
-              </div>
-            </div>
-          </div>
         </div>
-      </div>
+    </div>
+
+    <div>
+        <div class="__content-games">
+            <div class="__carousel">
+
+                <div class="__container-box">
+                    <ng-container *ngFor="let item of data">
+                        <div class="__inline-box">
+                            <div class="__team">
+                                <img src="assets/teams/{{item.homeTeam.icon}}" alt="" />
+                                <span style="margin-left: 5px">{{ item.homeTeam.name }}</span>
+                            </div>
+                            <strong>VS</strong>
+                            <div class="__team">
+                                <img src="assets/teams/{{item.awayTeam.icon}}" alt="" />
+                                <span style="margin-left: 5px">{{ item.awayTeam.name }}</span>
+                            </div>
+                        </div>
+                    </ng-container>
+                </div>
+
+            </div>
+        </div>
+    </div>
+
+    <div class="section-bets">
+        <div class="__card">
+            <div class="__header">
+                <span>Alt Mineiro <span style="color: #e8ae1c">VS</span> São Paulo</span>
+                <span>10/11/2019 19:00</span>
+            </div>
+
+            <div class="__content">
+                <div class="__bets">
+                    <div class="__bets-options">
+                        <strong>C</strong>
+                        <span>2.00</span>
+                    </div>
+                    <div class="__bets-options">
+                        <strong>X</strong>
+                        <span>2.00</span>
+                    </div>
+                    <div class="__bets-options">
+                        <strong>F</strong>
+                        <span>2.00</span>
+                    </div>
+                </div>
+                <div class="__bets">
+                    <div class="__bets-options">
+                        <strong>C/X</strong>
+                        <span>2.00</span>
+                    </div>
+                    <div class="__bets-options">
+                        <strong>C/F</strong>
+                        <span>2.00</span>
+                    </div>
+                    <div class="__bets-options">
+                        <strong>F/X</strong>
+                        <span>2.00</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
 </div>
