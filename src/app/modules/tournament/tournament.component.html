@@ -21,13 +21,13 @@
                     <ng-container *ngFor="let item of data">
                         <div class="__inline-box">
                             <div class="__team">
-                                <img src="assets/teams/{{item.homeTeam.icon}}" alt="" />
-                                <span style="margin-left: 5px">{{ item.homeTeam.name }}</span>
+                                <img src="assets/teams/{{item?.homeTeam?.icon}}" alt="" />
+                                <span style="margin-left: 5px">{{ item?.homeTeam?.name }}</span>
                             </div>
                             <strong>VS</strong>
                             <div class="__team">
-                                <img src="assets/teams/{{item.awayTeam.icon}}" alt="" />
-                                <span style="margin-left: 5px">{{ item.awayTeam.name }}</span>
+                                <img src="assets/teams/{{item?.awayTeam?.icon}}" alt="" />
+                                <span style="margin-left: 5px">{{ item?.awayTeam?.name }}</span>
                             </div>
                         </div>
                     </ng-container>
@@ -38,39 +38,40 @@
     </div>
 
     <div class="section-bets">
-        <div class="__card">
+        <div class="__card" *ngFor="let item of data">
             <div class="__header">
-                <span>Alt Mineiro <span style="color: #e8ae1c">VS</span> São Paulo</span>
-                <span>10/11/2019 19:00</span>
+                <span>{{ item?.homeTeam?.shortName }} <span style="color: #e8ae1c">VS</span>
+                    {{item?.awayTeam?.shortName}}</span>
+                <span>{{ item?.date | date: 'dd/MM/yyyy HH:mm' }}</span>
             </div>
 
             <div class="__content">
                 <div class="__bets">
                     <div class="__bets-options">
                         <strong>C</strong>
-                        <span>2.00</span>
+                        <span>{{ item?.bets?.home.toFixed(2) }}</span>
                     </div>
                     <div class="__bets-options">
                         <strong>X</strong>
-                        <span>2.00</span>
+                        <span>{{ item?.bets?.draw.toFixed(2) }}</span>
                     </div>
                     <div class="__bets-options">
                         <strong>F</strong>
-                        <span>2.00</span>
+                        <span>{{ item?.bets?.away.toFixed(2) }}</span>
                     </div>
                 </div>
                 <div class="__bets">
                     <div class="__bets-options">
                         <strong>C/X</strong>
-                        <span>2.00</span>
+                        <span>{{ item?.bets?.homeOrDraw.toFixed(2) }}</span>
                     </div>
                     <div class="__bets-options">
                         <strong>C/F</strong>
-                        <span>2.00</span>
+                        <span>{{ item?.bets?.homeOrAway.toFixed(2) }}</span>
                     </div>
                     <div class="__bets-options">
                         <strong>F/X</strong>
-                        <span>2.00</span>
+                        <span>{{ item?.bets?.drawOrAway.toFixed(2) }}</span>
                     </div>
                 </div>
             </div>

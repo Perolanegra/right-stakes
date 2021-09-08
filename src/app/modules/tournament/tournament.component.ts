@@ -18,7 +18,6 @@ export class TournamentComponent implements OnInit {
   htmlData: Array<any> = [];
 
   ngOnInit(): void {
-    console.log("resolved: ", this.dataResolved.details);
     this.getTeams();
     this.route.params.subscribe(
       (params: any) => (this.tournamentName = params["name"])
@@ -31,7 +30,6 @@ export class TournamentComponent implements OnInit {
 
   getTeams(): void {
     const { teams } = selectTeams(this.store);
-    console.log("teams; ", teams);
     this.teams = teams;
     this.setData();
   }

@@ -19,7 +19,10 @@ export class AppMenuComponent {
   @Input() public userEmail?: string;
 
   toggleMenu = () => this.emitToggleMenu.next();
-  backHome = () => this.backToHome.next();
+  backHome = () => {
+    this.store.dispatch(UpdateCustomer({ isLogged: false }));
+    this.backToHome.next();
+  };
   redirectToLogin = () => {
     this.store.dispatch(UpdateCustomer({ isLogged: false }));
     this.redirectLogin.next();
@@ -76,8 +79,14 @@ export class AppMenuComponent {
     }
 
     if ((item.option as string).toLowerCase() === "sair") {
+      
+      if (this.isLoggedIn) {
+        this.backHome();
+      } else {
+        this.redirectToLogin();
+      }
+
       this.toggleMenu();
-      this.isLoggedIn ? this.backHome() : this.redirectToLogin();
     }
   }
 }
