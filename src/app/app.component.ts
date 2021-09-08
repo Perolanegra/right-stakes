@@ -86,7 +86,7 @@ export class AppComponent {
   }
 
   clickBalance(): void {
-    console.log("o usuario clicou no saldo;");
+    alert('o usuario clicou no saldo');
   }
 
   navigateToLogin(): void {

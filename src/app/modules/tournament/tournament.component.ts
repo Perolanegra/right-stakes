@@ -22,6 +22,10 @@ export class TournamentComponent implements OnInit {
     this.route.params.subscribe(
       (params: any) => (this.tournamentName = params["name"])
     );
+
+    if(this.tournamentName?.toLowerCase() === 'paulista') {
+      alert('Não retorna dados da API');
+    }
   }
 
   get dataResolved(): any {

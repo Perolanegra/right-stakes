@@ -5,7 +5,6 @@ import { UpdateTournments } from "../core/actions/tournments/tournments.action";
 import { AppController } from "../core/appController";
 import { AppState } from "../core/store/app-state";
 import { selectCountries } from "../core/store/reducers/countries/countries.reducer";
-import { selectCustomer } from "../core/store/reducers/cutomer/customer.reducer";
 import { selectTeams } from "../core/store/reducers/teams/teams.reducer";
 import { selectTournments } from "../core/store/reducers/tournments/tournments.reducer";
 import { HomeService } from "./home.service";
@@ -72,7 +71,9 @@ export class HomeComponent implements OnInit {
 
   redirectToTournment(tournament: any): void {
     //TODO: navigate to rota para direcionar para tela interna do torneio passando parametros.
-    console.log("tournament: ", tournament);
-    this.appController.navigateWithParams('tournament/details/', [tournament.id, tournament.name]);
+    this.appController.navigateWithParams("tournament/details/", [
+      tournament.id,
+      tournament.name,
+    ]);
   }
 }
