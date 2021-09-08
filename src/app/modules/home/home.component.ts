@@ -2,7 +2,7 @@ import { Component, OnInit } from "@angular/core";
 import { Store } from "@ngrx/store";
 import { UpdateTeams } from "../core/actions/teams/teams.action";
 import { UpdateTournments } from "../core/actions/tournments/tournments.action";
-import { AppController } from "../core/appController";
+import { AppController } from "../core/default/appController";
 import { AppState } from "../core/store/app-state";
 import { selectCountries } from "../core/store/reducers/countries/countries.reducer";
 import { selectTeams } from "../core/store/reducers/teams/teams.reducer";

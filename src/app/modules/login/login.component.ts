@@ -7,7 +7,7 @@ import {
 } from "@angular/forms";
 import { Store } from "@ngrx/store";
 import { UpdateCustomer } from "../core/actions/customer/customer.action";
-import { AppController } from "../core/appController";
+import { AppController } from "../core/default/appController";
 import { AppState } from "../core/store/app-state";
 import { selectAccount } from "../core/store/reducers/account/account.reducer";
 

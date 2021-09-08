@@ -7,7 +7,7 @@ import { AppComponent } from './app.component';
 import { localStorageSync } from 'ngrx-store-localstorage';
 import { reducerKeys, reducers } from './modules/core/store/app-state';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
-import { AppController } from './modules/core/appController';
+import { AppController } from './modules/core/default/appController';
 import { SharedModule } from './modules/shared/shared.module';
 import { AppMenuComponent } from './components/app-menu/app-menu.component';
 import { HttpClientModule } from '@angular/common/http';

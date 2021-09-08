@@ -3,7 +3,7 @@ import { Router } from "@angular/router";
 import { Store } from "@ngrx/store";
 import { UpdateAccount } from "./modules/core/actions/account/account.action";
 import { UpdateCountries } from "./modules/core/actions/countries/countries.action";
-import { AppController } from "./modules/core/appController";
+import { AppController } from "./modules/core/default/appController";
 import { AppState } from "./modules/core/store/app-state";
 import { selectAccount } from "./modules/core/store/reducers/account/account.reducer";
 import { selectCustomer } from "./modules/core/store/reducers/cutomer/customer.reducer";

@@ -1,6 +1,6 @@
 import { Injectable } from "@angular/core";
 import { Observable, of } from "rxjs";
-import { DefaultResolver } from "../core/default.resolver";
+import { DefaultResolver } from "../core/default/default.resolver";
 import { HomeService } from "../home/home.service";
 
 @Injectable()
